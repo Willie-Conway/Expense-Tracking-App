@@ -1,9 +1,8 @@
 
 # 🧾 Expense Tracking App 📊
 
-![Expense Tracker](https://github.com/Willie-Conway/Expense-Tracking-App/blob/76b222af46f5f8db00d0970c032a5ec6a436859b/Screenshots/Expense%20Tracker.gif)
-
 Welcome to the **Expense Tracking App**! This is a Flutter application designed to help users track their expenses, manage categories and tags, and visualize their spending habits. 🚀
+![Expense Tracker](https://github.com/Willie-Conway/Expense-Tracking-App/blob/76b222af46f5f8db00d0970c032a5ec6a436859b/Screenshots/Expense%20Tracker.gif)
 
 ---
 
