@@ -14,8 +14,7 @@ class HomeScreen extends StatefulWidget {
   _HomeScreenState createState() => _HomeScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen>
-    with SingleTickerProviderStateMixin {
+class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateMixin {
   late TabController _tabController;
 
   @override
@@ -34,9 +33,11 @@ class _HomeScreenState extends State<HomeScreen>
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Expense Tracker"),
         backgroundColor: Colors.deepPurple[800],
         foregroundColor: Colors.white,
+        title: Center( // Center the title text
+          child: Text("Expense Tracker"),
+        ),
         bottom: TabBar(
           controller: _tabController,
           indicatorColor: Colors.white,
@@ -54,7 +55,7 @@ class _HomeScreenState extends State<HomeScreen>
           children: <Widget>[
             DrawerHeader(
               decoration: BoxDecoration(color: Colors.deepPurple),
-              child: Text('Menu',
+              child: Text(' Menu',
                   style: TextStyle(color: Colors.white, fontSize: 24)),
             ),
             ListTile(
@@ -87,7 +88,7 @@ class _HomeScreenState extends State<HomeScreen>
         backgroundColor: Colors.deepPurple,
         onPressed: () => Navigator.push(context,
             MaterialPageRoute(builder: (context) => AddExpenseScreen())),
-        tooltip: 'Add Expense',
+        tooltip: ' Add Expense',
         child: Icon(Icons.add),
       ),
     );

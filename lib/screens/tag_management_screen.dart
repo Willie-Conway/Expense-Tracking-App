@@ -8,7 +8,9 @@ class TagManagementScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Manage Tags"),
+        title: Center( // Center the title text in the AppBar
+          child: Text("Manage Tags"),
+        ),
         backgroundColor: Colors.deepPurple, // Themed color similar to your inspirations
         foregroundColor: Colors.white,
       ),

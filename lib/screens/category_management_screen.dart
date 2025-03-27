@@ -10,7 +10,9 @@ class CategoryManagementScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Manage Categories"),
+        title: Center( // Center the title text in the AppBar
+          child: Text("Manage Categories"),
+        ),
         backgroundColor: Colors.deepPurple, // Themed color similar to your inspirations
         foregroundColor: Colors.white,
       ),

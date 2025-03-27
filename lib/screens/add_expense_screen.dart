@@ -42,8 +42,10 @@ class _AddExpenseScreenState extends State<AddExpenseScreen> {
     final expenseProvider = Provider.of<ExpenseProvider>(context);
     return Scaffold(
       appBar: AppBar(
-        title: Text(
-            widget.initialExpense == null ? 'Add Expense' : 'Edit Expense'),
+        title: Center( // Center the title text in the AppBar
+          child: Text(
+              widget.initialExpense == null ? 'Add Expense' : 'Edit Expense'),
+        ),
         backgroundColor: Colors.deepPurple[400],
       ),
       body: SingleChildScrollView(
@@ -53,18 +55,14 @@ class _AddExpenseScreenState extends State<AddExpenseScreen> {
             buildTextField(_amountController, 'Amount',
                 TextInputType.numberWithOptions(decimal: true)),
             buildTextField(_payeeController, 'Payee', TextInputType.text),
-            buildTextField(_noteController, 'note', TextInputType.text),
+            buildTextField(_noteController, 'Note', TextInputType.text),
             buildDateField(_selectedDate),
-            // buildCategoryDropdown(expenseProvider),
-            // buildTagDropdown(expenseProvider),
             Padding(
-              padding: const EdgeInsets.only(
-                  bottom: 8.0), // Adjust the padding as needed
+              padding: const EdgeInsets.only(bottom: 8.0),
               child: buildCategoryDropdown(expenseProvider),
             ),
             Padding(
-              padding: const EdgeInsets.only(
-                  bottom: 8.0), // Adjust the padding as needed
+              padding: const EdgeInsets.only(bottom: 8.0),
               child: buildTagDropdown(expenseProvider),
             ),
           ],
@@ -84,8 +82,8 @@ class _AddExpenseScreenState extends State<AddExpenseScreen> {
       ),
     );
   }
-  // Helper methods for building the form elements go here (omitted for brevity)
 
+  // Helper method to save the expense
   void _saveExpense() {
     if (_amountController.text.isEmpty) {
       ScaffoldMessenger.of(context).showSnackBar(
@@ -126,7 +124,7 @@ class _AddExpenseScreenState extends State<AddExpenseScreen> {
     );
   }
 
-// Helper method to build the date picker field
+  // Helper method to build the date picker field
   Widget buildDateField(DateTime selectedDate) {
     return ListTile(
       title: Text("Date: ${DateFormat('yyyy-MM-dd').format(selectedDate)}"),
@@ -147,7 +145,7 @@ class _AddExpenseScreenState extends State<AddExpenseScreen> {
     );
   }
 
-// Helper method to build the category dropdown
+  // Helper method to build the category dropdown
   Widget buildCategoryDropdown(ExpenseProvider provider) {
     return DropdownButtonFormField<String>(
       value: _selectedCategoryId,
@@ -185,7 +183,7 @@ class _AddExpenseScreenState extends State<AddExpenseScreen> {
     );
   }
 
-// Helper method to build the tag dropdown
+  // Helper method to build the tag dropdown
   Widget buildTagDropdown(ExpenseProvider provider) {
     return DropdownButtonFormField<String>(
       value: _selectedTagId,
@@ -195,8 +193,7 @@ class _AddExpenseScreenState extends State<AddExpenseScreen> {
             context: context,
             builder: (context) => AddTagDialog(onAdd: (newTag) {
               provider.addTag(newTag); // Assuming you have an `addTag` method.
-              setState(
-                  () => _selectedTagId = newTag.id); // Update selected tag ID
+              setState(() => _selectedTagId = newTag.id); // Update selected tag ID
             }),
           );
         } else {
